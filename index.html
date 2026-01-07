@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rahyaban Farda – CFO Executive Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #1f2933;
+    }
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 24px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin: 6px 0 0;
+      opacity: 0.85;
+    }
+    .container {
+      padding: 24px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #0f172a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+      background: #f8fafc;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Rahyaban Farda – Executive CFO Dashboard</h1>
+  <p>Financial overview for senior management & board members</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Management Summary</h2>
+    <p>
+      Liquidity remains constrained with low cash buffers, while operational efficiency
+      and asset utilization remain strong. High leverage increases sensitivity to cash
+      flow disruptions, particularly for municipal and urban service contracts.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>Liquidity Ratios</h2>
+      <table>
+        <tr><th>Ratio</th><th>Value</th></tr>
+        <tr><td>Current Ratio</td><td>1.09</td></tr>
+        <tr><td>Quick Ratio</td><td>1.08</td></tr>
+        <tr><td>Cash Ratio</td><td>0.01</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Risk & Leverage</h2>
+      <table>
+        <tr><th>Metric</th><th>Value</th></tr>
+        <tr><td>Debt to Equity</td><td>5.21</td></tr>
+        <tr><td>Debt Ratio</td><td>0.84</td></tr>
+        <tr><td>ROA</td><td>28.24%</td></tr>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>Liquidity Visualization</h2>
+      <div id="liquidityChart"></div>
+    </div>
+
+    <div class="card">
+      <h2>Capital Structure</h2>
+      <div id="leverageChart"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  Generated for Rahyaban Farda – CFO & Executive Team
+</footer>
+
+<script>
+  Plotly.newPlot("liquidityChart", [{
+    x: ["Current", "Quick", "Cash"],
+    y: [1.09, 1.08, 0.01],
+    type: "bar"
+  }], {
+    margin: { t: 30 },
+    yaxis: { title: "Ratio Value" }
+  });
+
+  Plotly.newPlot("leverageChart", [{
+    labels: ["Equity", "Debt"],
+    values: [16, 84],
+    type: "pie"
+  }], {
+    margin: { t: 30 }
+  });
+</script>
+
+</body>
+</html>
